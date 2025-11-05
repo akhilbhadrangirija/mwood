@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+:root {
+  /* Tailwind v4 custom properties */
+  --primary: 0 126 199; /* #007ec7 in RGB */
+  --secondary: 0 159 227; /* #009fe3 in RGB */
+  --accent: 65 192 240; /* #41c0f0 in RGB */
+  
+  /* Other custom properties */
+  --btn-padding: 0.75rem 1.5rem;
+  --btn-radius: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed navbar */
+}
+
+body {
+  background-color: #ffffff;
+  color: #111827; /* gray-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in-scale {
+  animation: slideInScale 0.6s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+
+/* Initial hidden state for animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animate-fade-in-left {
+  transform: translateX(-30px);
+}
+
+.animate-on-scroll.animate-fade-in-right {
+  transform: translateX(30px);
+}
+
+.animate-on-scroll.animate-slide-in-scale {
+  transform: translateY(20px) scale(0.95);
+}
+
+.animate-on-scroll.animate-fade-in {
+  transform: translateY(0);
+}
+
+/* Visible state when in view */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Override for specific animation types when in view */
+.animate-on-scroll.animate-fade-in-left.in-view {
+  transform: translateX(0);
+}
+
+.animate-on-scroll.animate-fade-in-right.in-view {
+  transform: translateX(0);
+}
+
+.animate-on-scroll.animate-slide-in-scale.in-view {
+  transform: translateY(0) scale(1);
+}
+
+.animate-on-scroll.animate-fade-in.in-view {
+  transform: translateY(0);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Brochure-style section dividers */
+.section-divider {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #007ec7 0%, #009fe3 50%, #41c0f0 100%);
+}
+
+/* Diagonal slash layouts - removed conflicting pseudo-elements */
+.diagonal-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.diagonal-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Angled image containers */
+.angled-image-left {
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+}
+
+.angled-image-right {
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Responsive angled images - only on medium screens and up */
+.angled-image-left-responsive {
+  clip-path: none; /* No slant on mobile */
+}
+
+@media (min-width: 768px) {
+  .angled-image-left-responsive {
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.angled-image-right-responsive {
+  clip-path: none; /* No slant on mobile */
+}
+
+@media (min-width: 768px) {
+  .angled-image-right-responsive {
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.btn {
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  transition: all 200ms;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* Improve readability of white text on bright backgrounds */
+.text-shadow-white {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Page margin utility for consistent content width */
+.page-margin {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}

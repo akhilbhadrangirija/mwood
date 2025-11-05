@@ -1,0 +1,9 @@
+<svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="40" rx="8" fill="#007ec7"/>
+  <g font-family="Verdana, Geneva, Tahoma, sans-serif" font-weight="700" font-size="18" fill="white">
+    <text x="16" y="26">MWood</text>
+  </g>
+  <circle cx="140" cy="20" r="10" fill="#41c0f0" opacity="0.95"/>
+  <path d="M135 20h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M140 15v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
