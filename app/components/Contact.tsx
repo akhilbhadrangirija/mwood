@@ -1,9 +1,16 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 // Simple form component - no state logic yet
-function QuoteForm() {
+type QuoteFormProps = {
+  selectedService: string;
+  onChangeService: (value: string) => void;
+};
+
+function QuoteForm({ selectedService, onChangeService }: QuoteFormProps) {
   const t = useTranslations('Contact.form');
   return (
     <form action="#" method="POST" className="space-y-8">
@@ -61,6 +68,8 @@ function QuoteForm() {
           name="service"
           required
           className="block w-full px-4 py-3 text-gray-900 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-[#007ec7] focus:ring-4 focus:ring-[#007ec7]/10 focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+          value={selectedService}
+          onChange={(e) => onChangeService(e.target.value)}
         >
           <option value="">{t('servicePlaceholder')}</option>
           <option value="sofa">{t('services.sofa')}</option>
@@ -99,8 +108,26 @@ function QuoteForm() {
   );
 }
 
-export default function Contact() {
+function ContactInner() {
   const t = useTranslations('Contact');
+  const searchParams = useSearchParams();
+  const formContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const allowedServices = useMemo(() => new Set(['sofa', 'carpet', 'curtain', 'deep', 'other']), []);
+  const paramService = searchParams.get('service') || '';
+  const initialService = allowedServices.has(paramService) ? paramService : '';
+  const [selectedService, setSelectedService] = useState<string>(initialService);
+
+  useEffect(() => {
+    const svc = searchParams.get('service') || '';
+    if (allowedServices.has(svc)) {
+      setSelectedService(svc);
+      // Center the form in the viewport for visibility
+      if (formContainerRef.current) {
+        formContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, [searchParams, allowedServices]);
   return (
     <section
       id="contact"
@@ -118,12 +145,12 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Form */}
-          <div className="rounded-3xl bg-white p-12 shadow-2xl border border-white/20 backdrop-blur-sm">
+          <div ref={formContainerRef} id="contact-form" className="rounded-3xl bg-white p-12 shadow-2xl border border-white/20 backdrop-blur-sm">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-2">{t('formHeading')}</h3>
               <p className="text-gray-600">{t('formSubheading')}</p>
             </div>
-            <QuoteForm />
+            <QuoteForm selectedService={selectedService} onChangeService={setSelectedService} />
           </div>
 
           {/* Contact Info */}
@@ -175,5 +202,14 @@ export default function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function Contact() {
+  // Wrap the part using useSearchParams in Suspense per Next.js recommendation
+  return (
+    <Suspense fallback={<section id="contact" className="w-full bg-[#41c0f0] py-20 md:py-32"><div className="page-margin"><p className="text-white">Loading contact form...</p></div></section>}>
+      <ContactInner />
+    </Suspense>
   );
 }

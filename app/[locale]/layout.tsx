@@ -2,6 +2,9 @@ import { NextIntlClientProvider } from 'next-intl';
 import { i18n } from '@/i18n.config';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({ subsets: ['latin'], weight: ['300','400','500','700'], display: 'swap' });
 
 export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
@@ -22,7 +25,9 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   // Provide only the provider; root layout supplies html/body
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div dir={locale === 'ar' ? 'rtl' : 'ltr'}>{children}</div>
+      <div dir={locale === 'ar' ? 'rtl' : 'ltr'} className={locale === 'en' ? roboto.className : undefined}>
+        {children}
+      </div>
     </NextIntlClientProvider>
   );
 }
