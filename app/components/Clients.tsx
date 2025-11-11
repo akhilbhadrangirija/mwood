@@ -125,7 +125,7 @@ export default function Clients({ marquee = false, compact, subheading }: Client
               >
                 <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg border border-blue-200 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:from-blue-100 hover:to-blue-200 p-6 h-28 flex items-center justify-center">
                   <Image
-                    src={client.logo}
+                    src={`/${client.logo}`}
                     alt={t(`logos.${client.id}.alt`)}
                     title={t(`logos.${client.id}.name`)}
                     width={200}
