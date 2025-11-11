@@ -16,22 +16,52 @@
   "Services": {
     "heading": "Expert Cleaning Solutions",
     "subheading": "Advanced techniques and professional expertise for exceptional results across residential and commercial spaces.",
+    "cta": "Get a Free Quote",
+    "bookThisService": "Book this service",
     "items": {
-      "sofa": {
-        "title": "Premium Sofa Cleaning",
-        "description": "Transform your furniture with our advanced deep cleaning techniques. We eliminate stubborn stains, odors, and allergens using ISO-certified, non-toxic solutions that leave your sofa looking and feeling like new."
-      },
       "carpet": {
-        "title": "Professional Carpet Cleaning",
-        "description": "Revitalize your carpets with our state-of-the-art cleaning technology. Our certified technicians use eco-friendly products and advanced extraction methods to remove deep-seated dirt, stains, and allergens."
+        "title": "Carpet Cleaning",
+        "tagline": "Revitalize Your Carpets",
+        "description": "Your carpets deserve a truly deep clean. Mwood Cleaning is a trusted partner for maintaining both the cleanliness and longevity of your carpets. Our expert team uses advanced techniques and eco-friendly products to ensure a deep, revitalizing clean that is safe for your home. We remove allergens and tough stains, leaving your carpets fresh, inviting, and looking brand new. Experience the transformation as we bring new life to your living spaces.",
+        "bullets": [
+          "Advanced techniques & eco-friendly products",
+          "Remove allergens and tough stains",
+          "Fresh, inviting, brand-new look",
+          "Bring new life to your living spaces"
+        ]
+      },
+      "sofa": {
+        "title": "Sofa Cleaning",
+        "tagline": "A Deeper Clean for Your Favorite Seat",
+        "description": "You love your comfortable couch, but have you thought about what's hiding inside? Sofas can trap residue parasites, dust, and microscopic organisms, becoming a breeding ground for germs.\n\nThat's why Mwood offers a deep cleaning service that's safe for your home. We take your concerns seriously, using only non-harmful, ISO Certified chemicals. Our trained cleaners will remove all spots, making your sofa clean just like new and extending its life. Contact us for the best service in Dubai, and make those binge-watching TV nights even more enjoyable.",
+        "bullets": [
+          "ISO Certified, non-harmful chemicals",
+          "Removes spots and stubborn residues",
+          "Safe for family and fabrics",
+          "Restores like-new comfort"
+        ]
       },
       "curtain": {
-        "title": "Expert Curtain Care",
-        "description": "Restore the beauty of your curtains with our specialized cleaning process. We preserve fabric integrity and colors while eliminating dust, allergens, and odors using premium ISO-certified treatments."
+        "title": "Curtain Cleaning",
+        "tagline": "Breathe Easier with Clean Curtains",
+        "description": "Your curtains do more than just block the sun; they protect your home by trapping dust, mites, and smoke. This buildup can trigger respiratory issues like asthma.\n\nMwood's professional service makes your home healthier. We use the best non-harmful, ISO Certified detergents to leave your curtains completely clean and spotless, all while retaining their original colour. Contact us to make your home look and feel brand new.",
+        "bullets": [
+          "Removes trapped dust, mites, and smoke",
+          "ISO Certified detergents",
+          "Spotless while retaining original colour",
+          "Healthier air at home"
+        ]
       },
       "deep": {
-        "title": "Comprehensive Deep Cleaning",
-        "description": "Experience our thorough sanitization service that covers every detail. From disinfecting bathrooms and kitchens to appliance cleaning and stain removal, we deliver a complete transformation of your space."
+        "title": "Deep Cleaning",
+        "tagline": "A Complete Reset for Your Home",
+        "description": "When your home needs a complete reset, our Deep Cleaning Service delivers. We provide total sanitization and disinfection of high-traffic areas like bathrooms and kitchens. Our professionals handle everything: from floor mopping and stain removal in ovens to dusting windows and cleaning appliances like fans and air conditioners. We even clean doors, wardrobes, and balconies. Trust Mwood to restore that 'brand new' feeling to your space.",
+        "bullets": [
+          "Total sanitization and disinfection",
+          "Bathrooms, kitchens, and high-traffic areas",
+          "Appliances, stain removal, and windows",
+          "Doors, wardrobes, and balconies"
+        ]
       }
     }
   },
@@ -39,7 +69,7 @@
     "heading": "About MWood Cleaning Services",
     "intro": "MWood Cleaning Services is a professional team dedicated to delivering top‑quality cleaning for both residential and commercial spaces across Dubai. We combine trained staff, pro‑grade equipment and safe, ISO‑certified chemicals to achieve consistently excellent results.",
     "missionHeading": "Our Mission",
-    "mission": "Create clean, healthy environments by delivering exceptional service with a focus on quality, reliability and customer satisfaction—every visit."
+    "mission": "Create clean, healthy environments by delivering exceptional service with a focus on quality, reliability and customer satisfaction every visit."
   },
   "Equipment": {
     "heading": "Professional Equipment & Chemicals",
@@ -49,36 +79,100 @@
       "feature2": "Advanced Karcher BDS 43/180 C disc cleaning systems",
       "feature3": "Premium ISO-certified eco-friendly cleaning solutions",
       "feature4": "Specialized CarpetPro RM 760 restoration treatments"
+    },
+    "badges": {
+      "iso": "ISO Certified",
+      "ecoSafe": "Eco‑Safe",
+      "karcherAuthorized": "Karcher Authorized"
+    },
+    "ctaExperience": "Experience this clean",
+    "specs": {
+      "show": "See technical specs",
+      "hide": "Hide technical specs"
+    },
+    "imageAlt": "Professional cleaning equipment",
+    "items": {
+      "puzzi": {
+        "title": "Karcher Puzzi 10/2 Adv",
+        "tabLabel": "Puzzi 10/2",
+        "image": "https://images.pexels.com/photos/209230/pexels-photo-209230.jpeg",
+        "summary": "Professional spray extraction machine delivering deep, residue‑free cleaning for carpets and upholstery.",
+        "subheadline": "Professional‑grade deep‑cleaning technology used in every Mwood service.",
+        "description": [
+          "We use the Karcher Puzzi 10/2 Adv, a professional spray-extraction system engineered for deep, residue-free cleaning of carpets and upholstery. Its 2 bar spray pressure drives cleaning solution deep into textile fibres while an integrated defoamer prevents soap buildup, leaving surfaces genuinely clean and soft.",
+          "This is the same technology trusted by top-tier facilities for precise, hygienic results."
+        ],
+        "benefitsTitle": "What this means for your space",
+        "bullets": [
+          "The Puzzi 10/2 Adv delivers a residue-free finish through its integrated defoamer system, ensuring carpets stay fresh and comfortable without sticky film.",
+          "Its adaptive design allows quick, tool-free switching between broad floor areas and delicate upholstery, achieving efficient cleaning in every part of the home.",
+          "With a high-performance 1 250 W turbine and 80 W pump, the machine extracts embedded dirt and moisture from deep within fibres for a noticeably restored texture and appearance."
+        ],
+        "specs": [
+          "Spray pressure: 2 bar",
+          "Turbine power: 1250 W",
+          "Pump power: 80 W",
+          "Integrated defoamer dosage",
+          "Optional PW 30/1 roller brush attachment"
+        ]
+      },
+      "bds": {
+        "title": "Karcher BDS 43/180 C Classic",
+        "tabLabel": "BDS 43/180",
+        "image": "https://images.pexels.com/photos/4107286/pexels-photo-4107286.jpeg",
+        "summary": "Versatile single‑disc machine for scrubbing, carpet care, and even sanding worn parquet flooring.",
+        "subheadline": "Versatile single‑disc machine for scrubbing, carpet care, and even sanding worn parquet flooring.",
+        "description": [
+          "The Karcher BDS 43/180 C Classic is a professional-grade single-disc machine designed for deep scrubbing, carpet care, and even sanding worn parquet flooring. It’s the all-in-one solution for restoring and maintaining every type of hard or textile surface in your home."
+        ],
+        "benefitsTitle": "What this means for your space",
+        "bullets": [
+          "The BDS 43/180 C Classic delivers a deeper, more reliable clean through its maintenance-free metal gear system that ensures smooth, even power.",
+          "Its true floor versatility allows technicians to switch between scrubbing, carpet care, and hardwood restoration in seconds.",
+          "And with a wide 430 mm balanced design, every pass stays efficient and safe, protecting your floors from unnecessary strain."
+        ],
+        "specs": [
+          "Drive: Maintenance‑free all‑metal gear planet carrier",
+          "Working width: 430 mm",
+          "Use cases: Deep scrubbing, carpet care, parquet sanding",
+          "Accessories: Interchangeable pads & brushes"
+        ]
+      },
+      "rm760": {
+        "title": "Karcher CarpetPro Cleaner RM 760 Powder",
+        "tabLabel": "RM 760",
+        "image": "https://images.pexels.com/photos/4098778/pexels-photo-4098778.jpeg",
+        "summary": "Professional spray‑extraction powder delivering deep, fiber‑safe, residue‑free carpet cleaning.",
+        "subheadline": "Fiber‑safe, residue‑free extraction formula for consistently fresh results.",
+        "description": [
+          "For every carpet and textile cleaning project, Mwood uses the Karcher CarpetPro Cleaner RM 760 Powder Classic, a professional-grade formula developed specifically for high-performance spray extraction with our Puzzi machines.",
+          "This is not a conventional detergent, it’s a precision powder with a pH of 8.2 that dissolves embedded dirt and stains while remaining exceptionally gentle on textile fibers. The result is a thorough clean that preserves the softness, color, and longevity of your carpets."
+        ],
+        "benefitsTitle": "What this means for your space",
+        "bullets": [
+          "The CarpetPro Cleaner RM 760 Powder achieves a truly deep, residue-free clean by breaking down soil at the fiber level and extracting it completely, leaving no sticky film behind.",
+          "It is safe for valuable flooring materials, combining strong cleaning power with a formula proven gentle on delicate carpets and upholstery.",
+          "Through its perfect synergy with Karcher equipment, every application delivers consistent, high-quality results that restore freshness and comfort across your space."
+        ],
+        "specs": [
+          "Formula: Powder, pH 8.2",
+          "Application: Spray‑extraction cleaning",
+          "Compatibility: Optimized for Karcher Puzzi machines"
+        ]
+      }
     }
   },
   "Clients": {
     "heading": "Trusted By Dubai's Leading Businesses",
     "subheading": "Join our prestigious client roster across hospitality, aviation, and luxury sectors",
+    "strapline": "Trusted by Dubai’s leading homes and businesses",
     "logos": {
-      "jetex": {
-        "name": "Jetex Executive Aviation DWC",
-        "alt": "Jetex Executive Aviation DWC Logo"
-      },
-      "emiratesGolfClub": {
-        "name": "Emirates Golf Club",
-        "alt": "Emirates Golf Club Logo"
-      },
-      "sushisamba": {
-        "name": "SUSHISAMBA",
-        "alt": "SUSHISAMBA Logo"
-      },
-      "alBateen": {
-        "name": "Al Bateen Executive Airport",
-        "alt": "Al Bateen Executive Airport Logo"
-      },
-      "hampton": {
-        "name": "Hampton Restaurant",
-        "alt": "Hampton Restaurant Logo"
-      },
-      "leatherDoctor": {
-        "name": "Leather Doctor",
-        "alt": "Leather Doctor Logo"
-      }
+      "jetex": { "name": "Jetex Executive Aviation DWC", "alt": "Jetex Executive Aviation DWC Logo" },
+      "emiratesGolfClub": { "name": "Emirates Golf Club", "alt": "Emirates Golf Club Logo" },
+      "sushisamba": { "name": "SUSHISAMBA", "alt": "SUSHISAMBA Logo" },
+      "alBateen": { "name": "Al Bateen Executive Airport", "alt": "Al Bateen Executive Airport Logo" },
+      "hampton": { "name": "Hampton Restaurant", "alt": "Hampton Restaurant Logo" },
+      "leatherDoctor": { "name": "Leather Doctor", "alt": "Leather Doctor Logo" }
     }
   },
   "Contact": {
@@ -118,8 +212,7 @@
   "Footer": {
     "copyright": "MWood Cleaning Services. All Rights Reserved.",
     "locationLine": "Dubai, UAE | info@mwooduae.com"
-  }
-  ,
+  },
   "Meta": {
     "title": "MWood Cleaning Services | Dubai",
     "description": "Sparkling Clean. Every Time. Professional residential & commercial cleaning in Dubai."
