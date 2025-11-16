@@ -13,6 +13,7 @@ export default function Navbar() {
   const tNav = useTranslations('Navbar');
   const tCommon = useTranslations('Common');
   const [isOpen, setIsOpen] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   // Optional: lock body scroll when mobile menu is open
   useEffect(() => {
@@ -54,7 +55,7 @@ export default function Navbar() {
             aria-label="MWood Services Home"
           >
             <Image
-              src="/mwood_logo.png"
+              src={`${basePath}/mwood_logo.png`}
               alt="MWood Services logo"
               width={220}
               height={56}
@@ -151,7 +152,7 @@ export default function Navbar() {
               <div className="text-center">
                 <div className="flex items-center justify-center">
                   <Image
-                    src="/mwood_logo.png"
+                    src={`${basePath}/mwood_logo.png`}
                     alt="MWood Services logo"
                     width={180}
                     height={48}
