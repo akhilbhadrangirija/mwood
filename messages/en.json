@@ -51,17 +51,6 @@
           "Spotless while retaining original colour",
           "Healthier air at home"
         ]
-      },
-      "deep": {
-        "title": "Deep Cleaning",
-        "tagline": "A Complete Reset for Your Home",
-        "description": "When your home needs a complete reset, our Deep Cleaning Service delivers. We provide total sanitization and disinfection of high-traffic areas like bathrooms and kitchens. Our professionals handle everything: from floor mopping and stain removal in ovens to dusting windows and cleaning appliances like fans and air conditioners. We even clean doors, wardrobes, and balconies. Trust Mwood to restore that 'brand new' feeling to your space.",
-        "bullets": [
-          "Total sanitization and disinfection",
-          "Bathrooms, kitchens, and high-traffic areas",
-          "Appliances, stain removal, and windows",
-          "Doors, wardrobes, and balconies"
-        ]
       }
     }
   },
@@ -193,7 +182,6 @@
         "sofa": "Sofa Cleaning",
         "carpet": "Carpet Cleaning",
         "curtain": "Curtain Cleaning",
-        "deep": "Deep Cleaning",
         "other": "Other"
       },
       "details": "Additional Details",

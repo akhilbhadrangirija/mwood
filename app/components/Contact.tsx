@@ -75,7 +75,6 @@ function QuoteForm({ selectedService, onChangeService }: QuoteFormProps) {
           <option value="sofa">{t('services.sofa')}</option>
           <option value="carpet">{t('services.carpet')}</option>
           <option value="curtain">{t('services.curtain')}</option>
-          <option value="deep">{t('services.deep')}</option>
           <option value="other">{t('services.other')}</option>
         </select>
       </div>
@@ -113,7 +112,7 @@ function ContactInner() {
   const searchParams = useSearchParams();
   const formContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const allowedServices = useMemo(() => new Set(['sofa', 'carpet', 'curtain', 'deep', 'other']), []);
+  const allowedServices = useMemo(() => new Set(['sofa', 'carpet', 'curtain', 'other']), []);
   const paramService = searchParams.get('service') || '';
   const initialService = allowedServices.has(paramService) ? paramService : '';
   const [selectedService, setSelectedService] = useState<string>(initialService);

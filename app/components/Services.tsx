@@ -19,10 +19,6 @@ const serviceItems = [
     id: 'curtain',
     imageUrl: 'https://images.pexels.com/photos/17573843/pexels-photo-17573843.jpeg',
   },
-  {
-    id: 'deep',
-    imageUrl: 'https://images.pexels.com/photos/4098778/pexels-photo-4098778.jpeg',
-  },
 ] as const;
 
 export default function Services() {
