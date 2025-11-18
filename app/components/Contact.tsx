@@ -13,8 +13,8 @@ type QuoteFormProps = {
 function QuoteForm({ selectedService, onChangeService }: QuoteFormProps) {
   const t = useTranslations('Contact.form');
   return (
-    <form action="#" method="POST" className="space-y-8">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <form action="#" method="POST" className="space-y-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-3">
             {t('fullName')}
@@ -144,7 +144,7 @@ function ContactInner() {
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Form */}
-          <div ref={formContainerRef} id="contact-form" className="rounded-3xl bg-white p-12 shadow-2xl border border-white/20 backdrop-blur-sm">
+          <div ref={formContainerRef} id="contact-form" className="rounded-3xl bg-white p-8 shadow-2xl border border-white/20 backdrop-blur-sm">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-2">{t('formHeading')}</h3>
               <p className="text-gray-600">{t('formSubheading')}</p>
