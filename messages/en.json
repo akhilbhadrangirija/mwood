@@ -8,14 +8,14 @@
   },
   "Hero": {
     "title": "Sparkling Clean. Every Time.",
-    "subtitle": "Professional residential and commercial cleaning in Dubai using safe chemicals and pro-grade equipment."
+    "subtitle": "Professional commercial cleaning in Dubai using safe chemicals and pro-grade equipment."
   },
   "Common": {
     "cta": "Get a Free Quote"
   },
   "Services": {
     "heading": "Expert Cleaning Solutions",
-    "subheading": "Advanced techniques and professional expertise for exceptional results across residential and commercial spaces.",
+    "subheading": "Advanced techniques and professional expertise for exceptional results across commercial spaces.",
     "cta": "Get a Free Quote",
     "bookThisService": "Book this service",
     "items": {
@@ -56,7 +56,7 @@
   },
   "About": {
     "heading": "About MWood Cleaning Services",
-    "intro": "MWood Cleaning Services is a professional team dedicated to delivering top‑quality cleaning for both residential and commercial spaces across Dubai. We combine trained staff, pro‑grade equipment and safe, ISO‑certified chemicals to achieve consistently excellent results.",
+    "intro": "MWood Cleaning Services is a professional team dedicated to delivering top‑quality cleaning for commercial spaces across Dubai. We combine trained staff, pro‑grade equipment and safe, ISO‑certified chemicals to achieve consistently excellent results.",
     "missionHeading": "Our Mission",
     "mission": "Create clean, healthy environments by delivering exceptional service with a focus on quality, reliability and customer satisfaction every visit."
   },
@@ -203,6 +203,6 @@
   },
   "Meta": {
     "title": "MWood Cleaning Services | Dubai",
-    "description": "Sparkling Clean. Every Time. Professional residential & commercial cleaning in Dubai."
+    "description": "Sparkling Clean. Every Time. Professional commercial cleaning in Dubai."
   }
 }
