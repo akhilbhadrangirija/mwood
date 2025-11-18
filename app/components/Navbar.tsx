@@ -13,6 +13,12 @@ export default function Navbar() {
   const tNav = useTranslations('Navbar');
   const tCommon = useTranslations('Common');
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure portal only renders on client to avoid hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Optional: lock body scroll when mobile menu is open
   useEffect(() => {
@@ -120,7 +126,7 @@ export default function Navbar() {
       </div>
   </nav>
     {/* Portal: Mobile menu overlay rendered at body level to avoid navbar stacking context */}
-    {typeof document !== 'undefined' && createPortal(
+    {isMounted && createPortal(
       <AnimatePresence>
         {isOpen && (
           <motion.div
