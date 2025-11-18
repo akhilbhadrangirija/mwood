@@ -53,6 +53,17 @@ export default function About() {
               {t('intro')}
             </motion.p>
 
+            <motion.p
+              variants={right}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-6 text-lg font-semibold text-[#007ec7] md:text-xl"
+            >
+              {t('speciality')}
+            </motion.p>
+
             <motion.h3
               variants={right}
               initial="hidden"
