@@ -4,7 +4,13 @@ import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 
-const roboto = Roboto({ subsets: ['latin'], weight: ['300','400','500','700'], display: 'swap' });
+const roboto = Roboto({ 
+  subsets: ['latin'], 
+  weight: ['300','400','500','700'], 
+  display: 'optional',
+  preload: true,
+  variable: '--font-roboto'
+});
 
 export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
@@ -25,7 +31,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   // Provide only the provider; root layout supplies html/body
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div dir={locale === 'ar' ? 'rtl' : 'ltr'} className={locale === 'en' ? roboto.className : undefined}>
+      <div dir={locale === 'ar' ? 'rtl' : 'ltr'} className={locale === 'en' ? `${roboto.className} ${roboto.variable}` : undefined}>
         {children}
       </div>
     </NextIntlClientProvider>

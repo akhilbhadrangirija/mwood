@@ -59,15 +59,16 @@ export default function Navbar() {
             className="flex items-center transition-transform duration-300 hover:scale-105"
             aria-label="MWood Services Home"
           >
-            <Image
-              src="/mwood_logo.png"
-              alt="MWood Services logo"
-              width={220}
-              height={56}
-              priority
-              className="h-12 md:h-14 w-auto"
-              sizes="(min-width: 768px) 224px, 180px"
-            />
+            <div className="relative h-12 md:h-14 w-24 md:w-32">
+              <Image
+                src="/mwood_logo.png"
+                alt="MWood Services logo"
+                fill
+                priority
+                className="object-contain"
+                sizes="(min-width: 768px) 224px, 180px"
+              />
+            </div>
           </a>
 
           {/* Desktop Nav (links) */}
@@ -156,14 +157,15 @@ export default function Navbar() {
             <div className="absolute top-6 left-6 right-16 flex items-center justify-center">
               <div className="text-center">
                 <div className="flex items-center justify-center">
-                  <Image
-                    src="/mwood_logo.png"
-                    alt="MWood Services logo"
-                    width={180}
-                    height={48}
-                    className="h-12 w-auto"
-                    sizes="(max-width: 768px) 180px, 224px"
-                  />
+                  <div className="relative h-12 w-auto">
+                    <Image
+                      src="/mwood_logo.png"
+                      alt="MWood Services logo"
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 180px, 224px"
+                    />
+                  </div>
                 </div>
                 <div className="mt-1 text-xs text-gray-500">Premium Cleaning in Dubai</div>
               </div>

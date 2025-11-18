@@ -102,6 +102,7 @@ export default function Clients({ marquee = false, compact, subheading }: Client
                       width={110}
                       height={55}
                       className="object-contain"
+                      loading="lazy"
                     />
                   </div>
                 ))}
@@ -132,6 +133,7 @@ export default function Clients({ marquee = false, compact, subheading }: Client
                     width={200}
                     height={200}
                     className="object-contain max-h-16 max-w-full w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
+                    loading="lazy"
                   />
                   {/* Fallback text for missing logos */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#007ec7]/90 backdrop-blur-sm">
