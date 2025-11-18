@@ -19,9 +19,71 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Meta' });
+  
+  // Get the site URL from environment variable or use a default
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mwooduae.com';
+  const ogImage = `${siteUrl}/mwood_logo.png`;
+  
   return {
     title: t('title'),
-    description: t('description')
+    description: t('description'),
+    keywords: ['cleaning services', 'Dubai', 'commercial cleaning', 'carpet cleaning', 'sofa cleaning', 'curtain cleaning', 'MWood'],
+    authors: [{ name: 'MWood Cleaning Services' }],
+    creator: 'MWood Cleaning Services',
+    publisher: 'MWood Cleaning Services',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical: '/',
+      languages: {
+        'en': '/en',
+        'ar': '/ar',
+      },
+    },
+    openGraph: {
+      type: 'website',
+      locale: locale === 'ar' ? 'ar_AE' : 'en_US',
+      url: `${siteUrl}/${locale}`,
+      title: t('title'),
+      description: t('description'),
+      siteName: 'MWood Cleaning Services',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'MWood Cleaning Services Logo',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [ogImage],
+      creator: '@mwooduae',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    verification: {
+      // Add your verification codes here when available
+      // google: 'your-google-verification-code',
+      // yandex: 'your-yandex-verification-code',
+      // yahoo: 'your-yahoo-verification-code',
+    },
   };
 }
 
