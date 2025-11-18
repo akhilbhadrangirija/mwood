@@ -162,16 +162,6 @@ function ContactInner() {
             </p>
             <div className="space-y-8">
               <div className="rounded-xl bg-white/10 p-6 backdrop-blur-sm">
-                <h4 className="text-xl font-bold text-white">Anil Bepu</h4>
-                <p className="text-white/80">{t('managerGeneral')}</p>
-                <a
-                  href="tel:+971503545972"
-                  className="text-xl font-semibold text-white hover:text-[#41c0f0] transition-colors"
-                >
-                  +971 50-3545972
-                </a>
-              </div>
-              <div className="rounded-xl bg-white/10 p-6 backdrop-blur-sm">
                 <h4 className="text-xl font-bold text-white">Mani</h4>
                 <p className="text-white/80">{t('managerOperations')}</p>
                 <a
@@ -179,6 +169,16 @@ function ContactInner() {
                   className="text-xl font-semibold text-white hover:text-[#41c0f0] transition-colors"
                 >
                   +971 55-2601223
+                </a>
+              </div>
+              <div className="rounded-xl bg-white/10 p-6 backdrop-blur-sm">
+                <h4 className="text-xl font-bold text-white">Anil Bepu</h4>
+                <p className="text-white/80">{t('managerGeneral')}</p>
+                <a
+                  href="tel:+971503545972"
+                  className="text-xl font-semibold text-white hover:text-[#41c0f0] transition-colors"
+                >
+                  +971 50-3545972
                 </a>
               </div>
               <div className="rounded-xl bg-white/10 p-6 backdrop-blur-sm">
