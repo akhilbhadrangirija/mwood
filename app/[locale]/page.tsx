@@ -16,7 +16,7 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <Clients marquee compact subheading={subheading} />
-  <Services />
+      <Services />
       <About />
       <Equipment variant="tabs" />
       <Contact />

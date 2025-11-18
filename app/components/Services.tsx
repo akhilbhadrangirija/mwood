@@ -103,7 +103,7 @@ export default function Services() {
                     <h3 className="text-3xl font-bold md:text-4xl">{title}</h3>
                     <p className="mt-2 text-xl font-medium text-white/80">{tagline}</p>
                   </div>
-                  <p className="text-lg leading-relaxed text-white/90">{description}</p>
+                  <p className="text leading-relaxed text-white/90">{description}</p>
                   {bullets.length > 0 && (
                     <ul className="space-y-3">
                       {bullets.map((bullet) => (

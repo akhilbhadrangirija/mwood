@@ -13,6 +13,7 @@ const clientLogos = [
   { id: 'alBateen', logo: 'assets/logos/al-bateen.png' },
   { id: 'hampton', logo: 'assets/logos/hampton.png' },
   { id: 'leatherDoctor', logo: 'assets/logos/leather-doctor.png' },
+  { id: 'radisson', logo: 'assets/logos/radisson.png' },
 ];
 
 type ClientsProps = {
