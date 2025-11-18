@@ -200,6 +200,10 @@
     "addressLabel": "Address",
     "address": "MWOOD CLEANING SERVICES\nDUBAI - UAE"
   },
+  "Works": {
+    "heading": "Our Works",
+    "subheading": "Explore our portfolio of professional cleaning projects showcasing our expertise and attention to detail."
+  },
   "Footer": {
     "copyright": "MWood Cleaning Services. All Rights Reserved.",
     "locationLine": "Dubai, UAE | info@mwooduae.com"

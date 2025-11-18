@@ -218,6 +218,10 @@
     "addressLabel": "العنوان",
     "address": "MWOOD CLEANING SERVICES\nدبي - الإمارات"
   },
+  "Works": {
+    "heading": "أعمالنا",
+    "subheading": "استكشف محفظة أعمالنا من مشاريع التنظيف الاحترافية التي تعرض خبرتنا واهتمامنا بالتفاصيل."
+  },
   "Footer": {
     "copyright": "خدمات تنظيف MWood. جميع الحقوق محفوظة.",
     "locationLine": "دبي، الإمارات | info@mwooduae.com"

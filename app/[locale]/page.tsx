@@ -6,6 +6,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Clients from '@/app/components/Clients';
 import Equipment from '@/app/components/Equipment';
+import Works from '@/app/components/Works';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Home() {
@@ -19,6 +20,7 @@ export default async function Home() {
       <Services />
       <About />
       <Equipment variant="tabs" />
+      <Works />
       <Contact />
       <Footer />
     </main>
