@@ -24,9 +24,6 @@ type ClientsProps = {
 
 export default function Clients({ marquee = false, compact, subheading }: ClientsProps) {
   const t = useTranslations('Clients');
-  // Use NEXT_PUBLIC_BASE_PATH ('' in dev, '/mwood-website' in prod) so exported
-  // HTML points to the correct asset path that GitHub Pages will serve.
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
   const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } };
 
   // Marquee animation
@@ -100,7 +97,7 @@ export default function Clients({ marquee = false, compact, subheading }: Client
                     title={t(`logos.${logo.id}.name`)}
                   >
                     <Image
-                      src={`${basePath}/${logo.logo}`}
+                      src={`/${logo.logo}`}
                       alt={t(`logos.${logo.id}.alt`)}
                       width={110}
                       height={55}
@@ -129,7 +126,7 @@ export default function Clients({ marquee = false, compact, subheading }: Client
               >
                 <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg border border-blue-200 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:from-blue-100 hover:to-blue-200 p-6 h-28 flex items-center justify-center">
                   <Image
-                    src={`${basePath}/${client.logo}`}
+                    src={`/${client.logo}`}
                     alt={t(`logos.${client.id}.alt`)}
                     title={t(`logos.${client.id}.name`)}
                     width={200}
