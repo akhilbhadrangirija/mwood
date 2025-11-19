@@ -63,7 +63,7 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
       return null; // No data loaded yet
     }
     return (
-      <section id="equipment" className="w-full bg-gradient-to-br from-[#007bff] to-[#5ba8f3] py-28">
+      <section id="equipment" className="w-full bg-linear-to-br from-[#007bff] to-[#5ba8f3] py-28">
         <div className="page-margin">
           {/* Localized section heading/description */}
           <div className="mb-10 max-w-3xl text-white">
@@ -88,7 +88,7 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
               {t('description')}
             </motion.p>
           </div>
-          <div className="mb-10 flex flex-wrap gap-3">
+          <div className="mb-6 flex flex-wrap gap-3">
             {equipmentItems.map(item => (
               <button
                 key={item.id}
@@ -103,7 +103,7 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:items-start">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
@@ -111,7 +111,7 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                className="space-y-6 text-white md:col-span-2"
+                className="space-y-3 text-white"
               >
                 <h3 className="text-3xl font-semibold md:text-4xl">{current.title}</h3>
                 {current.subheadline && (
@@ -166,7 +166,7 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
                   </div>
                 )}
 
-                <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex flex-wrap items-center gap-3 text-white/95">
                     <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-medium">
                       <ShieldCheckIcon className="h-4 w-4" /> {t('badges.iso')}
@@ -178,7 +178,15 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
                       <CheckBadgeIcon className="h-4 w-4" /> {t('badges.karcherAuthorized')}
                     </span>
                   </div>
-                  <button
+                  
+                </div>
+              </motion.div>
+            </AnimatePresence>
+              <div className="relative h-80 w-full overflow-hidden rounded-2xl shadow-2xl md:h-[600px]">
+                <Image src={current.image} alt={`${t('imageAlt')}: ${current.title}`} fill className="object-cover" />
+                
+              </div>
+              <button
                     type="button"
                     onClick={() => {
                       router.push(pathname, { scroll: false });
@@ -187,16 +195,10 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                       }, 0);
                     }}
-                    className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 font-semibold text-[#0f5db6] shadow-sm transition hover:shadow"
+                    className="cursor-pointer inline-flex items-center justify-center rounded-full bg-white px-5 py-2 font-semibold text-[#0f5db6] shadow-sm transition hover:shadow"
                   >
                     {t('ctaExperience')}
                   </button>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-              <div className="relative h-80 w-full overflow-hidden rounded-2xl shadow-2xl md:h-[420px]">
-                <Image src={current.image} alt={`${t('imageAlt')}: ${current.title}`} fill className="object-cover" />
-              </div>
             </div>
           </div>
       </section>
@@ -256,7 +258,7 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
             className="relative h-96 w-full overflow-hidden rounded-2xl shadow-2xl md:h-[450px] lg:h-[500px] md:col-start-2 md:row-start-1"
           >
             <Image
-              src="https://images.pexels.com/photos/209230/pexels-photo-209230.jpeg"
+              src="/karcher_puzi.jpg"
               alt={t('imageAlt')}
               fill
               className="object-cover"
