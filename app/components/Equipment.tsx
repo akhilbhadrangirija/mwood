@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { CheckCircleIcon, CheckBadgeIcon, ShieldCheckIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useMessages } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -54,9 +54,25 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
   // State for tabs variant (default to first item if available)
   const [active, setActive] = useState(equipmentItems[0]?.id);
   const [showSpecs, setShowSpecs] = useState(false);
+  const userSelectedRef = useRef(false);
   const current = equipmentItems.find(e => e.id === active);
 
   useEffect(() => { setShowSpecs(false); }, [active]);
+
+  // Auto-switch tabs every 3 seconds unless user has manually selected
+  useEffect(() => {
+    if (variant !== 'tabs' || equipmentItems.length === 0) return;
+    
+    const interval = setInterval(() => {
+      if (!userSelectedRef.current) {
+        const currentIndex = equipmentItems.findIndex(item => item.id === active);
+        const nextIndex = (currentIndex + 1) % equipmentItems.length;
+        setActive(equipmentItems[nextIndex].id);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [active, equipmentItems, variant]);
 
   if (variant === 'tabs') {
     if (!current) {
@@ -92,8 +108,11 @@ export default function Equipment({ variant = 'simple' }: EquipmentProps) {
             {equipmentItems.map(item => (
               <button
                 key={item.id}
-                onClick={() => setActive(item.id)}
-                className={`rounded-full px-5 py-2 text-sm transition-all ${
+                onClick={() => {
+                  userSelectedRef.current = true;
+                  setActive(item.id);
+                }}
+                className={`rounded-full cursor-pointer px-5 py-2 transition-all ${
                   active === item.id
                     ? 'bg-white text-[#0f5db6] shadow-md ring-2 ring-white/70'
                     : 'bg-white/15 text-white/90 hover:bg-white/25'
