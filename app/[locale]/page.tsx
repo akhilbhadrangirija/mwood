@@ -19,7 +19,7 @@ export default async function Home() {
       <Clients marquee compact subheading={subheading} />
       <Services />
       <About />
-      <Equipment variant="tabs" />
+      <Equipment variant="simple" />
       <Works />
       <Contact />
       <Footer />
