@@ -28,10 +28,28 @@ export default function Hero() {
       {/* Content */}
       <div className="page-margin relative z-10 text-center w-full">
         <div className="max-w-4xl mx-auto">
+          {/* MWood Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="relative h-20 w-48 md:h-28 md:w-64">
+              <Image
+                src="/mwood_logo.png"
+                alt="MWood Services logo"
+                fill
+                priority
+                className="object-contain drop-shadow-2xl"
+                sizes="(min-width: 768px) 256px, 192px"
+              />
+            </div>
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mb-6 text-4xl font-extrabold tracking-tight text-white text-shadow-white md:text-6xl"
           >
             {tHero('title')}
@@ -39,7 +57,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="mb-8 max-w-2xl mx-auto text-lg text-gray-100 md:text-xl leading-relaxed"
           >
             {tHero('subtitle')}
@@ -47,7 +65,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center"
           >
             <a
