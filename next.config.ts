@@ -13,7 +13,8 @@ const config: NextConfig = {
       },
     ],
   },
-  output: 'export',
+  // Removed 'output: export' to enable server-side features (API routes, server actions)
+  // If you need static export, you can conditionally set this based on an env variable
   turbopack: {
     root: __dirname,
   },

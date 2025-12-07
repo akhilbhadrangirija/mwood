@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { sendContactEmail } from '../actions/send-email';
 
 // Simple form component - no state logic yet
 type QuoteFormProps = {
@@ -12,8 +13,65 @@ type QuoteFormProps = {
 
 function QuoteForm({ selectedService, onChangeService }: QuoteFormProps) {
   const t = useTranslations('Contact.form');
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string || undefined,
+      service: formData.get('service') as string,
+      message: formData.get('message') as string || undefined,
+    };
+
+    try {
+      const result = await sendContactEmail(data);
+      
+      // Debug logging (remove in production if needed)
+      console.log('Form submission result:', result);
+      
+      // Check if result exists and has success property
+      if (result?.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: result.message || 'Thank you! We will get back to you soon.',
+        });
+        // Reset form using ref to avoid null reference issues
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+        onChangeService('');
+      } else {
+        // Handle error case
+        setSubmitStatus({
+          type: 'error',
+          message: result?.error || 'Something went wrong. Please try again.',
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'An unexpected error occurred. Please try again or contact us directly.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <form action="#" method="POST" className="space-y-4">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-3">
@@ -93,11 +151,25 @@ function QuoteForm({ selectedService, onChangeService }: QuoteFormProps) {
       </div>
       
       <div className="pt-4">
+        {/* Status Messages */}
+        {submitStatus.type && (
+          <div
+            className={`mb-4 p-4 rounded-xl ${
+              submitStatus.type === 'success'
+                ? 'bg-green-50 text-green-800 border-2 border-green-200'
+                : 'bg-red-50 text-red-800 border-2 border-red-200'
+            }`}
+          >
+            <p className="font-semibold">{submitStatus.message}</p>
+          </div>
+        )}
+
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-[#007ec7] to-[#009fe3] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:from-[#006bb3] hover:to-[#008bd6] transform hover:scale-[1.02] transition-all duration-300 focus:ring-4 focus:ring-[#007ec7]/30"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-to-r from-[#007ec7] to-[#009fe3] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:from-[#006bb3] hover:to-[#008bd6] transform hover:scale-[1.02] transition-all duration-300 focus:ring-4 focus:ring-[#007ec7]/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
         >
-          {t('submit')}
+          {isSubmitting ? 'Sending...' : t('submit')}
         </button>
         <p className="text-sm text-gray-600 text-center mt-3">
           {t('responseTime')}

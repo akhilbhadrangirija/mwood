@@ -18,7 +18,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Meta' });
+  // Validate locale - if not a valid locale, use default
+  const validLocale = i18n.locales.includes(locale as any) ? locale : i18n.defaultLocale;
+  const t = await getTranslations({ locale: validLocale, namespace: 'Meta' });
   
   // Get the site URL from environment variable or use a default
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mwooduae.com';
@@ -46,8 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     openGraph: {
       type: 'website',
-      locale: locale === 'ar' ? 'ar_AE' : 'en_US',
-      url: `${siteUrl}/${locale}`,
+      locale: validLocale === 'ar' ? 'ar_AE' : 'en_US',
+      url: `${siteUrl}/${validLocale}`,
       title: t('title'),
       description: t('description'),
       siteName: 'MWood Cleaning Services',
@@ -89,11 +91,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }>; }) {
   const { locale } = await params;
-  const messages = (await import(`@/messages/${locale}.json`)).default;
+  
+  // Validate locale - if not a valid locale, use default
+  const validLocale = i18n.locales.includes(locale as any) ? locale : i18n.defaultLocale;
+  
+  let messages;
+  try {
+    messages = (await import(`@/messages/${validLocale}.json`)).default;
+  } catch (error) {
+    // Fallback to default locale if import fails
+    console.error(`Failed to load messages for locale ${validLocale}:`, error);
+    messages = (await import(`@/messages/${i18n.defaultLocale}.json`)).default;
+  }
+  
   // Provide only the provider; root layout supplies html/body
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <div dir={locale === 'ar' ? 'rtl' : 'ltr'} className={locale === 'en' ? `${roboto.className} ${roboto.variable}` : undefined}>
+    <NextIntlClientProvider locale={validLocale} messages={messages}>
+      <div dir={validLocale === 'ar' ? 'rtl' : 'ltr'} className={validLocale === 'en' ? `${roboto.className} ${roboto.variable}` : undefined}>
         {children}
       </div>
     </NextIntlClientProvider>
